@@ -3,8 +3,20 @@
     <string name="current_total">Current Total:</string>
     <string name="current_ave">Current Average:</string>
     <string name="new_entry">New Entry</string>
-    <string name="lets_estimate">Let\'s estimate today\'s usage!</string>
+    <string name="lets_estimate">Let\'s estimate today\'s usage! (litres)</string>
     <string name="pick_date">Enter the date:</string>
     <string name="date_hint">DD/MM/YYYY</string>
-    <string name="shower">Shower (litres)</string>
+    <string name="shower">Shower</string>
+    <string name="toilet">Toilet</string>
+    <string name="hygiene">Hygiene (bathroom, sink)</string>
+    <string name="laundry">Laundry</string>
+    <string name="dishes">Dishes</string>
+    <string name="drinking">Drinking</string>
+    <string name="cooking">Cooking</string>
+    <string name="cleaning">Cleaning</string>
+    <string name="other">Other</string>
+    <string name="save_button">Save</string>
+    <string name="exit_button">Exit</string>
+    <string name="running_total">Running Total:</string>
+    <string name="litres">litres</string>
 </resources>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Calculator_activity">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="@dimen/header_size"
+        android:text="@string/lets_estimate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/pick_date_size"
+        android:text="@string/pick_date"
+        tools:layout_editor_absoluteX="51dp"
+        tools:layout_editor_absoluteY="63dp" />
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="125dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:hint="@string/date_hint"
+        android:inputType="date"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView4"
+        tools:layout_editor_absoluteX="235dp" />
+
+    <ScrollView
+        android:layout_width="379dp"
+        android:layout_height="473dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.876">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/shower"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/horizontal_layout_height"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/usage_category_size"
+                    android:layout_weight="1"
+                    android:text="@string/shower" />
+
+                <EditText
+                    android:id="@+id/editText6"
+                    android:layout_width="9dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/toilet"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/horizontal_layout_height"
+                android:orientation="horizontal"
+                android:layout_below="@id/shower">
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/hygiene"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/horizontal_layout_height"
+                android:orientation="horizontal"
+                android:layout_below="@id/toilet"></LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/laundry"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/horizontal_layout_height"
+                android:orientation="horizontal"
+                android:layout_below="@id/hygiene"></LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dishes"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/horizontal_layout_height"
+                android:orientation="horizontal"
+                android:layout_below="@id/laundry"></LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/drinking"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/horizontal_layout_height"
+                android:orientation="horizontal"
+                android:layout_below="@id/dishes"></LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cooking"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/horizontal_layout_height"
+                android:orientation="horizontal"
+                android:layout_below="@id/drinking"></LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cleaning"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/horizontal_layout_height"
+                android:orientation="horizontal"
+                android:layout_below="@id/cooking"></LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/other"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/horizontal_layout_height"
+                android:orientation="horizontal"
+                android:layout_below="@id/cleaning"></LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

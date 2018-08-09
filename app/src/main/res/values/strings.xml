@@ -3,4 +3,8 @@
     <string name="current_total">Current Total:</string>
     <string name="current_ave">Current Average:</string>
     <string name="new_entry">New Entry</string>
+    <string name="lets_estimate">Let\'s estimate today\'s usage!</string>
+    <string name="pick_date">Enter the date:</string>
+    <string name="date_hint">DD/MM/YYYY</string>
+    <string name="shower">Shower (litres)</string>
 </resources>

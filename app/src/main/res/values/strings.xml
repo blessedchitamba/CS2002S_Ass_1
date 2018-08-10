@@ -19,4 +19,9 @@
     <string name="exit_button">Exit</string>
     <string name="running_total">Running Total:</string>
     <string name="litres">litres</string>
+    <string name="diary_date">17 May 2018</string>
+    <string name="right_key">></string>
+    <string name="total_usage">Total Usage:</string>
+    <string name="return_overview">Overview</string>
+    <string name="calculator">Calculator</string>
 </resources>

@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".DiaryEntryActivity" />
-        <activity android:name=".Calculator_activity"></activity>
+        <activity android:name=".Calculator_activity" />
+        <activity android:name=".DiaryActivity"></activity>
     </application>
 
 </manifest>

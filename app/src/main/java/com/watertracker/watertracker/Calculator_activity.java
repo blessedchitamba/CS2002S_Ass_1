@@ -42,27 +42,27 @@ public class Calculator_activity extends AppCompatActivity {
         strings[3] = editText.getText().toString();
         editText.getText().clear();
 
-        editText = findViewById(R.id.laundry);
+        editText = findViewById(R.id.input4);
         strings[4] = editText.getText().toString();
         editText.getText().clear();
 
-        editText = findViewById(R.id.dishes);
+        editText = findViewById(R.id.input5);
         strings[5] = editText.getText().toString();
         editText.getText().clear();
 
-        editText = findViewById(R.id.drinking);
+        editText = findViewById(R.id.input6);
         strings[6] = editText.getText().toString();
         editText.getText().clear();
 
-        editText = findViewById(R.id.cooking);
+        editText = findViewById(R.id.input7);
         strings[7] = editText.getText().toString();
         editText.getText().clear();
 
-        editText = findViewById(R.id.cleaning);
+        editText = findViewById(R.id.input8);
         strings[8] = editText.getText().toString();
         editText.getText().clear();
 
-        editText = findViewById(R.id.other);
+        editText = findViewById(R.id.input9);
         strings[9] = editText.getText().toString();
         editText.getText().clear();
 

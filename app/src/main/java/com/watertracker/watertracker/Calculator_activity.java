@@ -27,7 +27,9 @@ public class Calculator_activity extends AppCompatActivity {
         setContentView(R.layout.activity_calculator_activity);
     }
 
+    //save button listener method
     public void save(View view) {
+
         //load the input strings into the array. clear the text in each input field at each count
         editText = findViewById(R.id.date);
         strings[0] = editText.getText().toString();
@@ -78,6 +80,7 @@ public class Calculator_activity extends AppCompatActivity {
                 fos.write(s.getBytes());
                 fos.write(" ".getBytes());
             }
+            fos.write("\n".getBytes());
             Toast.makeText(this, "Saved to " + getFilesDir() + "/" + FILE_NAME,
                     Toast.LENGTH_LONG).show();
     } catch (FileNotFoundException e) {
@@ -93,6 +96,14 @@ public class Calculator_activity extends AppCompatActivity {
                 }
             }
         }
+
+        //build the intent to go to the diary entry activity
+        //use Bundle class to pass the whole strings array into the intent, instead of one by one
+        Intent intent = new Intent(this, DiaryActivity.class);
+        Bundle array = new Bundle();
+        array.putStringArray("Key", strings);
+        intent.putExtras(array);
+        startActivity(intent);
     }
 
     //Exit button listener method

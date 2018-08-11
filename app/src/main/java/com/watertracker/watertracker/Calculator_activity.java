@@ -1,19 +1,22 @@
 package com.watertracker.watertracker;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Calculator_activity extends AppCompatActivity {
 
-    private String[] entry_data = {"date", "shower", "toilet", "hygiene", "laundry", "dishes", "drinking",
-                                    "cooking", "cleaning", "other"};
+    private static final String EXTRA_MESSAGE = "com.watertracker.watertracker.MESSAGE";
     private String[] strings = new String[10];
     private static final String FILE_NAME = "example.txt";
     EditText editText;
@@ -70,9 +73,10 @@ public class Calculator_activity extends AppCompatActivity {
         FileOutputStream fos = null;
 
         try {
-            fos = openFileOutput(FILE_NAME, MODE_PRIVATE);
+            fos = openFileOutput(FILE_NAME, MODE_APPEND);
             for (String s: strings) {
                 fos.write(s.getBytes());
+                fos.write(" ".getBytes());
             }
             Toast.makeText(this, "Saved to " + getFilesDir() + "/" + FILE_NAME,
                     Toast.LENGTH_LONG).show();
@@ -90,4 +94,10 @@ public class Calculator_activity extends AppCompatActivity {
             }
         }
     }
+
+    //Exit button listener method
+    public void exit(View view){
+
+    }
 }
+

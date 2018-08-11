@@ -25,25 +25,25 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:layout_marginTop="64dp"
         android:text="@string/pick_date"
         android:textSize="@dimen/pick_date_size"
-        app:layout_constraintEnd_toStartOf="@+id/editText4"
+        app:layout_constraintEnd_toStartOf="@+id/date"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/date"
         android:layout_width="125dp"
         android:layout_height="43dp"
-        android:layout_marginEnd="84dp"
-        android:layout_marginRight="84dp"
         android:ems="10"
         android:hint="@string/date_hint"
         android:inputType="date"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView4" />
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -80,7 +80,7 @@
                     android:textSize="@dimen/usage_category_size" />
 
                 <EditText
-                    android:id="@+id/editText6"
+                    android:id="@+id/input1"
                     android:layout_width="20dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -105,7 +105,7 @@
                     android:textSize="@dimen/usage_category_size" />
 
                 <EditText
-                    android:id="@+id/editText7"
+                    android:id="@+id/input2"
                     android:layout_width="20dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -129,7 +129,7 @@
                     android:textSize="@dimen/usage_category_size" />
 
                 <EditText
-                    android:id="@+id/editText8"
+                    android:id="@+id/input3"
                     android:layout_width="20dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -153,7 +153,7 @@
                     android:textSize="@dimen/usage_category_size" />
 
                 <EditText
-                    android:id="@+id/editText9"
+                    android:id="@+id/input4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -177,7 +177,7 @@
                     android:textSize="@dimen/usage_category_size" />
 
                 <EditText
-                    android:id="@+id/editText10"
+                    android:id="@+id/input5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -201,7 +201,7 @@
                     android:textSize="@dimen/usage_category_size" />
 
                 <EditText
-                    android:id="@+id/editText11"
+                    android:id="@+id/input6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -225,7 +225,7 @@
                     android:textSize="@dimen/usage_category_size" />
 
                 <EditText
-                    android:id="@+id/editText12"
+                    android:id="@+id/input7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -249,7 +249,7 @@
                     android:textSize="@dimen/usage_category_size" />
 
                 <EditText
-                    android:id="@+id/editText13"
+                    android:id="@+id/input8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -273,7 +273,7 @@
                     android:textSize="@dimen/usage_category_size" />
 
                 <EditText
-                    android:id="@+id/editText14"
+                    android:id="@+id/input9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -288,14 +288,18 @@
         android:id="@+id/linearLayout"
         android:layout_width="221dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2">
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        app:layout_constraintVertical_bias="0.0">
 
         <Button
             android:id="@+id/button3"
@@ -303,6 +307,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="25dp"
             android:layout_weight="1"
+            android:onClick="save"
             android:text="@string/save_button" />
 
         <Button
@@ -314,12 +319,15 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="241dp"
         android:layout_height="55dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        app:layout_constraintVertical_bias="0.824">
 
         <TextView
             android:id="@+id/textView16"

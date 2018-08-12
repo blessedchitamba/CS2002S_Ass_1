@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -11,16 +13,23 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private static final String FILE_NAME = "example.txt";
     private TextView textview;
+    ArrayList<String> theDisplay = new ArrayList<>(10);
+    ArrayAdapter adapter;
+    ListView list;
+    private int linesCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textview = findViewById(R.id.entries_display);
+        list = findViewById(R.id.theList);
+
+       // textview = findViewById(R.id.entries_display);
 
         //read data from file and display in text view
         FileInputStream fis = null;
@@ -30,13 +39,15 @@ public class MainActivity extends AppCompatActivity {
             BufferedReader br = new BufferedReader(isr);
             StringBuilder sb = new StringBuilder();
             String output;
+            linesCount=0;
 
             while ((output = br.readLine()) != null) {
-                sb.append(output).append("\n");
+                theDisplay.add(output.split(" ")[0]);
+                linesCount++;
             }
 
-            TextView textview = findViewById(R.id.entries_display);
-            textview.setText(sb.toString());
+            adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, theDisplay);
+            list.setAdapter(adapter);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -56,8 +67,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
-        //read data from file and display in text view
-        textview.setText("");
+        int tempCount=0;
 
         FileInputStream fis = null;
         try {
@@ -66,12 +76,20 @@ public class MainActivity extends AppCompatActivity {
             BufferedReader br = new BufferedReader(isr);
             StringBuilder sb = new StringBuilder();
             String output;
+            theDisplay.clear();
 
-            while ((output = br.readLine()) != null) {
-                sb.append(output).append("\n");
+            while ((output=br.readLine()) != null) {
+                tempCount++;
+                theDisplay.add(output.split(" ")[0]);
+                //sb.append(output).append("\n");
             }
+            adapter=null;
+            adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, theDisplay);
+            list.setAdapter(adapter);
 
-            textview.setText(sb.toString());
+            /*if(tempCount>linesCount){
+                adapter.notifyDataSetChanged();
+            }*/
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

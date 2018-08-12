@@ -19,7 +19,8 @@ public class Calculator_activity extends AppCompatActivity {
     private static final String EXTRA_MESSAGE = "com.watertracker.watertracker.MESSAGE";
     private String[] strings = new String[10];
     private static final String FILE_NAME = "example.txt";
-    EditText editText;
+    private EditText editText;
+    private int lines_count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,11 +98,39 @@ public class Calculator_activity extends AppCompatActivity {
             }
         }
 
+        //go through each line in the file counting
+        FileInputStream fis = null;
+        try {
+            fis = openFileInput(FILE_NAME);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+            String output;
+
+            while ((output = br.readLine()) != null) {
+                lines_count++;
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (fis != null) {
+                try {
+                    fis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
         //build the intent to go to the diary entry activity
         //use Bundle class to pass the whole strings array into the intent, instead of one by one
         Intent intent = new Intent(this, DiaryActivity.class);
         Bundle array = new Bundle();
         array.putStringArray("Key", strings);
+        array.putString("linesCount", Integer.toString(lines_count));
         intent.putExtras(array);
         startActivity(intent);
     }

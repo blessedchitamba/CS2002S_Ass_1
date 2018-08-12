@@ -343,8 +343,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
+            android:onClick="leftPress"
             android:text="r"
-            android:textSize="30sp"/>
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/textView5"
@@ -364,7 +365,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:onClick="rightPress"
             android:text="@string/right_key"
-            android:textSize="30sp"/>
+            android:textSize="30sp" />
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

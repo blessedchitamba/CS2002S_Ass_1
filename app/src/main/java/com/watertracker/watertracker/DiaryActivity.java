@@ -14,7 +14,7 @@ import java.io.InputStreamReader;
 
 public class DiaryActivity extends AppCompatActivity {
     String[] arrayReceived;
-    String[] line;
+    int total_usage;
     int i;
     int current_position;
     TextView textView;
@@ -125,6 +125,14 @@ public class DiaryActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.editText14);
         textView.setText(data_array[9]);
+
+        //to display the total usage too
+        total_usage = 0;
+        for(int i=1; i<data_array.length; i++) {
+            total_usage+=Integer.parseInt(data_array[i]);
+        }
+        textView = findViewById(R.id.editText15);
+        textView.setText(Integer.toString(total_usage));
     }
 
     //Listener methods for the back and forth buttons. This one is for the left press

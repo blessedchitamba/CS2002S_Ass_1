@@ -35,46 +35,70 @@ public class Calculator_activity extends AppCompatActivity {
     //save button listener method
     public void save(View view) {
 
+        //fill the array with the user input
+        strings = getInfo(strings);
+
+        writeToFile(strings, FILE_NAME);
+
+        //get count of lines
+        lines_count = countLines(FILE_NAME, lines_count);
+        
+        //build the intent to go to the diary entry activity
+        //use Bundle class to pass the whole strings array into the intent, instead of one by one
+        Intent intent = new Intent(this, DiaryActivity.class);
+        Bundle array = new Bundle();
+        array.putStringArray("Key", strings);
+        array.putString("linesCount", Integer.toString(lines_count));
+        intent.putExtras(array);
+        startActivity(intent);
+    }
+
+    public String[] getInfo(String[] emptyArray){
         //load the input strings into the array. clear the text in each input field at each count
         editText = findViewById(R.id.date);
-        strings[0] = editText.getText().toString();
+        emptyArray[0] = editText.getText().toString();
         editText.getText().clear();
 
         editText = findViewById(R.id.input1);
-        strings[1] = editText.getText().toString();
+        emptyArray[1] = editText.getText().toString();
         editText.getText().clear();
 
         editText = findViewById(R.id.input2);
-        strings[2] = editText.getText().toString();
+        emptyArray[2] = editText.getText().toString();
         editText.getText().clear();
 
         editText = findViewById(R.id.input3);
-        strings[3] = editText.getText().toString();
+        emptyArray[3] = editText.getText().toString();
         editText.getText().clear();
 
         editText = findViewById(R.id.input4);
-        strings[4] = editText.getText().toString();
+        emptyArray[4] = editText.getText().toString();
         editText.getText().clear();
 
         editText = findViewById(R.id.input5);
-        strings[5] = editText.getText().toString();
+        emptyArray[5] = editText.getText().toString();
         editText.getText().clear();
 
         editText = findViewById(R.id.input6);
-        strings[6] = editText.getText().toString();
+        emptyArray[6] = editText.getText().toString();
         editText.getText().clear();
 
         editText = findViewById(R.id.input7);
-        strings[7] = editText.getText().toString();
+        emptyArray[7] = editText.getText().toString();
         editText.getText().clear();
 
         editText = findViewById(R.id.input8);
-        strings[8] = editText.getText().toString();
+        emptyArray[8] = editText.getText().toString();
         editText.getText().clear();
 
         editText = findViewById(R.id.input9);
-        strings[9] = editText.getText().toString();
+        emptyArray[9] = editText.getText().toString();
         editText.getText().clear();
+
+        return emptyArray;
+    }
+
+    public void writeToFile(String[] dataArray, String FILE_NAME){
 
         //start writing the strings into file. iterate through strings array
         FileOutputStream fos = null;
@@ -82,15 +106,15 @@ public class Calculator_activity extends AppCompatActivity {
         try {
             fos = openFileOutput(FILE_NAME, MODE_APPEND);
             for (int i=0; i<10; i++) {
-                fos.write(strings[i].getBytes());
+                fos.write(dataArray[i].getBytes());
                 fos.write(" ".getBytes());
 
                 if(i!=0){
-                    total_usage+=Integer.parseInt(strings[i]);
+                    total_usage+=Integer.parseInt(dataArray[i]);
                 }
             }
-            strings[10]=Integer.toString(total_usage);
-            fos.write(strings[10].getBytes());
+            dataArray[10]=Integer.toString(total_usage);
+            fos.write(dataArray[10].getBytes());
             fos.write("\n".getBytes());
             Toast.makeText(this, "Saved to " + getFilesDir() + "/" + FILE_NAME,
                     Toast.LENGTH_LONG).show();
@@ -107,7 +131,9 @@ public class Calculator_activity extends AppCompatActivity {
                 }
             }
         }
+    }
 
+    public int countLines(String FILE_NAME, int lines_count){
         //go through each line in the file counting
         FileInputStream fis = null;
         try {
@@ -135,14 +161,7 @@ public class Calculator_activity extends AppCompatActivity {
             }
         }
 
-        //build the intent to go to the diary entry activity
-        //use Bundle class to pass the whole strings array into the intent, instead of one by one
-        Intent intent = new Intent(this, DiaryActivity.class);
-        Bundle array = new Bundle();
-        array.putStringArray("Key", strings);
-        array.putString("linesCount", Integer.toString(lines_count));
-        intent.putExtras(array);
-        startActivity(intent);
+        return lines_count;
     }
 
     //Exit button listener method

@@ -144,7 +144,7 @@ public class Calculator_activity extends AppCompatActivity {
 
     //Exit button listener method
     public void exit(View view){
-
+        super.onBackPressed();
     }
 }
 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="header_size">24sp</dimen>
+    <dimen name="pick_date_size">20sp</dimen>
+    <dimen name="date_input_size">20sp</dimen>
+    <dimen name="date_input_width">25sp</dimen>
+    <dimen name="date_input_height">40sp</dimen>
+    <dimen name="horizontal_layout_height">80sp</dimen>
+
+    <dimen name="usage_category_size">20sp</dimen>
+    <dimen name="running_total_size">16sp</dimen>
+    <dimen name="litres_size">30sp</dimen>
+</resources>

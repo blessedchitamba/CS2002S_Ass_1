@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayAdapter adapter;
     ListView list;
     private int linesCount;
+    private int current_total;
+    private double average;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
        // textview = findViewById(R.id.entries_display);
 
-        //read data from file and display in text view
+        //read data from file and display in ListView
         FileInputStream fis = null;
         try {
             fis = openFileInput(FILE_NAME);
@@ -42,12 +44,19 @@ public class MainActivity extends AppCompatActivity {
             linesCount=0;
 
             while ((output = br.readLine()) != null) {
-                theDisplay.add(output.split(" ")[0]);
+                theDisplay.add(output.split(" ")[0]+": "+output.split(" ")[10]+"litres.");
                 linesCount++;
+                current_total+=Integer.parseInt(output.split(" ")[10]);
             }
 
             adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, theDisplay);
             list.setAdapter(adapter);
+            textview = findViewById(R.id.editText2);
+            textview.setText(Integer.toString(current_total)+getString(R.string.litres));
+
+            average = Math.round(((double)current_total/linesCount));
+            textview = findViewById(R.id.editText3);
+            textview.setText(Double.toString(average)+getString(R.string.litres));
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -67,7 +76,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
-        int tempCount=0;
+        linesCount=0;
+        current_total=0;
+        average=0;
 
         FileInputStream fis = null;
         try {
@@ -79,17 +90,20 @@ public class MainActivity extends AppCompatActivity {
             theDisplay.clear();
 
             while ((output=br.readLine()) != null) {
-                tempCount++;
-                theDisplay.add(output.split(" ")[0]);
-                //sb.append(output).append("\n");
+                theDisplay.add(output.split(" ")[0]+": "+output.split(" ")[10]+"litres.");
+                current_total+=Integer.parseInt(output.split(" ")[10]);
+                linesCount++;
             }
             adapter=null;
             adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, theDisplay);
             list.setAdapter(adapter);
 
-            /*if(tempCount>linesCount){
-                adapter.notifyDataSetChanged();
-            }*/
+            textview = findViewById(R.id.editText2);
+            textview.setText(Integer.toString(current_total)+getString(R.string.litres));
+
+            average = Math.round(((double)current_total/linesCount));
+            textview = findViewById(R.id.editText3);
+            textview.setText(Double.toString(average)+getString(R.string.litres));
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

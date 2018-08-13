@@ -14,7 +14,6 @@ import java.io.InputStreamReader;
 
 public class DiaryActivity extends AppCompatActivity {
     String[] arrayReceived;
-    int total_usage;
     int i;
     int current_position;
     TextView textView;
@@ -42,41 +41,6 @@ public class DiaryActivity extends AppCompatActivity {
 
         //call a function to load the data on the text file into a 2D matrix
         this.all_data = loadMatrix(FILE_NAME, all_data);
-    }
-
-    //method to load data from text file into matrix
-    public String[][] loadMatrix(String fileName, String[][] all_data) {
-        FileInputStream fis = null;
-        try {
-            fis = openFileInput(fileName);
-            InputStreamReader isr = new InputStreamReader(fis);
-            BufferedReader br = new BufferedReader(isr);
-            StringBuilder sb = new StringBuilder();
-            String output;
-            all_data = new String[i][10];
-
-            int j = i;
-                while ((output = br.readLine()) != null) {
-                    all_data[i-j] = output.split(" ");
-                    j--;
-                }
-
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (fis != null) {
-                try {
-                    fis.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        return all_data;
     }
 
     //method to populate the activity with the data
@@ -127,12 +91,43 @@ public class DiaryActivity extends AppCompatActivity {
         textView.setText(data_array[9]);
 
         //to display the total usage too
-        total_usage = 0;
-        for(int i=1; i<data_array.length; i++) {
-            total_usage+=Integer.parseInt(data_array[i]);
-        }
         textView = findViewById(R.id.editText15);
-        textView.setText(Integer.toString(total_usage));
+        textView.setText(data_array[10]);
+    }
+
+    //method to load data from text file into matrix
+    public String[][] loadMatrix(String fileName, String[][] all_data) {
+        FileInputStream fis = null;
+        try {
+            fis = openFileInput(fileName);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+            String output;
+            all_data = new String[i][10];
+
+            int j = i;
+                while ((output = br.readLine()) != null) {
+                    all_data[i-j] = output.split(" ");
+                    j--;
+                }
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (fis != null) {
+                try {
+                    fis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return all_data;
     }
 
     //Listener methods for the back and forth buttons. This one is for the left press

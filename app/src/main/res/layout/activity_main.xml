@@ -30,27 +30,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/editText2"
-        android:layout_width="55dp"
-        android:layout_height="44dp"
+        android:layout_width="80dp"
+        android:layout_height="29dp"
         android:layout_marginLeft="32dp"
         android:layout_marginStart="32dp"
         android:ems="10"
-        android:hint="300"
-        android:inputType="number"
+        android:text="0 litres"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView"
         app:layout_constraintStart_toEndOf="@+id/textView" />
 
-    <EditText
+    <TextView
         android:id="@+id/editText3"
-        android:layout_width="55dp"
-        android:layout_height="49dp"
+        android:layout_width="100dp"
+        android:layout_height="28dp"
         android:layout_marginLeft="12dp"
         android:layout_marginStart="12dp"
         android:ems="10"
-        android:hint="40"
-        android:inputType="number"
+        android:text="0 litres/d"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView2"
         app:layout_constraintStart_toEndOf="@+id/textView2" />
 
@@ -68,7 +66,7 @@
 
     <ListView
         android:id="@+id/theList"
-        android:layout_width="395dp"
+        android:layout_width="259dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="180dp"
@@ -77,5 +75,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.875" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="136dp"
+        android:text="@string/previous_entries"
+        android:textSize="@dimen/usage_category_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

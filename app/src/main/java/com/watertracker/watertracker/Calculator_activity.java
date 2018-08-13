@@ -17,10 +17,11 @@ import java.io.InputStreamReader;
 public class Calculator_activity extends AppCompatActivity {
 
     private static final String EXTRA_MESSAGE = "com.watertracker.watertracker.MESSAGE";
-    private String[] strings = new String[10];
+    private String[] strings = new String[11];
     private static final String FILE_NAME = "example.txt";
     private EditText editText;
     private int lines_count = 0;
+    private int total_usage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,14 +78,20 @@ public class Calculator_activity extends AppCompatActivity {
 
         try {
             fos = openFileOutput(FILE_NAME, MODE_APPEND);
-            for (String s: strings) {
-                fos.write(s.getBytes());
+            for (int i=0; i<10; i++) {
+                fos.write(strings[i].getBytes());
                 fos.write(" ".getBytes());
+
+                if(i!=0){
+                    total_usage+=Integer.parseInt(strings[i]);
+                }
             }
+            strings[10]=Integer.toString(total_usage);
+            fos.write(strings[10].getBytes());
             fos.write("\n".getBytes());
             Toast.makeText(this, "Saved to " + getFilesDir() + "/" + FILE_NAME,
                     Toast.LENGTH_LONG).show();
-    } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
@@ -107,7 +114,7 @@ public class Calculator_activity extends AppCompatActivity {
             StringBuilder sb = new StringBuilder();
             String output;
 
-            while ((output = br.readLine()) != null) {
+            while ((br.readLine()) != null) {
                 lines_count++;
             }
 

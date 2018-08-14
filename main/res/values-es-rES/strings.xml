@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Rastreador de agua</string>
+    <string name="current_total">Total actual:</string>
+    <string name="current_ave">Promedio actual:</string>
+    <string name="new_entry">Nueva entrada</string>
+    <string name="lets_estimate">¡ vamos a estimar el uso de hoy!</string>
+    <string name="pick_date">Ingrese fecha:</string>
+    <string name="date_hint">DD/MM/YYYY</string>
+    <string name="shower">Ducha</string>
+    <string name="toilet">Inodoro</string>
+    <string name="hygiene">higiene (baño, fregadero)</string>
+    <string name="laundry">Lavandería</string>
+    <string name="dishes">Platos</string>
+    <string name="drinking">Beber</string>
+    <string name="cooking">Cocina</string>
+    <string name="cleaning">Limpieza</string>
+    <string name="other">Otros</string>
+    <string name="save_button">Salvar</string>
+    <string name="exit_button">Salida</string>
+    <string name="running_total">total de ejecución:</string>
+    <string name="diary_date">17 May 2018</string>
+    <string name="right_key">></string>
+    <string name="total_usage">Uso total:</string>
+    <string name="return_overview">Visión general</string>
+    <string name="calculator">Calculadora</string>
+    <string name="previous_entries">Entradas anteriores</string>
+    <string name="litres">itros</string>
+    <string name="back">Atrás</string>
+    <string name="next">Próxima</string>
+</resources>
